@@ -1,8 +1,14 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.3'
+    id 'org.springframework.boot' version '3.2.5'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'maven-publish'
 }
+
+// make sure whenever you would make any changes in common library that you are using everywhere in your diff microservices , change version each time and publish it using this command : ./gradlew publishToMavenLocal
+// article : https://medium.com/@ruchiram4/android-create-a-library-project-and-publish-to-local-maven-repository-2141621dff1c
+// i am publishing it on maven that only usable in local machine , if we want central usage we have to push it differently to maven
+
 
 group = 'org.uber'
 version = '0.0.1-SNAPSHOT'
@@ -19,6 +25,23 @@ configurations {
     }
 }
 
+// we are publishing our this library to the maven publishing so that we can use it wherever we want
+
+publishing {
+    publications {
+        mavenJava(MavenPublication){
+            from components.java
+        }
+    }
+
+    repositories {
+        maven{
+            url = uri('/Users/ayush/OneDrive/Desktop/Developing/SpringBootProject/UberProject/EntityManagerService')
+        }
+    }
+}
+
+
 repositories {
     mavenCentral()
 }
@@ -26,7 +49,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.flywaydb:flyway-core'
-    implementation 'org.flywaydb:flyway-mysql'
+    implementation 'org.flywaydb:flyway-mysql:8.4.4'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.mysql:mysql-connector-j'
@@ -34,6 +57,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation:3.2.5'
 }
 
 tasks.named('test') {

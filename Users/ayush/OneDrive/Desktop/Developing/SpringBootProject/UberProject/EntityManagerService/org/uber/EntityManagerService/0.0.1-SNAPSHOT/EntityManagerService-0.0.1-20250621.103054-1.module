@@ -1,0 +1,81 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.uber",
+    "module": "EntityManagerService",
+    "version": "0.0.1-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "EntityManagerService-0.0.1-SNAPSHOT-plain.jar",
+          "url": "EntityManagerService-0.0.1-SNAPSHOT-plain.jar",
+          "size": 16003,
+          "sha512": "a420e143d2461b117bd17ff1cfa1204715cd607a97141eac729caac386dab4985be8fadf74c7af06ead0edf76e1649f125eb3eecb559be262a0461ad2cbd2acc",
+          "sha256": "3c38e1577b181de99a699be92dc098bcd0835a9245b26cff272a8d93e02c14e4",
+          "sha1": "299a5f6ddb7a7d4fc104bd2c4a1ff03e878083d8",
+          "md5": "b47b15d410b968672db4db9d132d33ec"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-data-jpa"
+        },
+        {
+          "group": "org.flywaydb",
+          "module": "flyway-core"
+        },
+        {
+          "group": "org.flywaydb",
+          "module": "flyway-mysql",
+          "version": {
+            "requires": "8.4.4"
+          }
+        },
+        {
+          "group": "com.mysql",
+          "module": "mysql-connector-j"
+        }
+      ],
+      "files": [
+        {
+          "name": "EntityManagerService-0.0.1-SNAPSHOT-plain.jar",
+          "url": "EntityManagerService-0.0.1-SNAPSHOT-plain.jar",
+          "size": 16003,
+          "sha512": "a420e143d2461b117bd17ff1cfa1204715cd607a97141eac729caac386dab4985be8fadf74c7af06ead0edf76e1649f125eb3eecb559be262a0461ad2cbd2acc",
+          "sha256": "3c38e1577b181de99a699be92dc098bcd0835a9245b26cff272a8d93e02c14e4",
+          "sha1": "299a5f6ddb7a7d4fc104bd2c4a1ff03e878083d8",
+          "md5": "b47b15d410b968672db4db9d132d33ec"
+        }
+      ]
+    }
+  ]
+}

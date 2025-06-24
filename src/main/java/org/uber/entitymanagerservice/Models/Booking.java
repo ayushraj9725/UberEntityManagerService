@@ -11,7 +11,12 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "booking")
+//@Table(name = "booking")
+@Table(
+        name = "booking" ,
+        indexes = {
+        @Index(columnList = "driver_id")
+})
 public class Booking extends BaseModel{
 
     // doing some composition btw table because we want to define relation to interact as per need
@@ -32,6 +37,12 @@ public class Booking extends BaseModel{
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Passenger passenger ;
+
+    @OneToOne
+    private ExactLocation startLocation;
+
+    @OneToOne
+    private ExactLocation endLocation;
 
 }
 
